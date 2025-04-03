@@ -1,0 +1,42 @@
+<!-- playas -->
+
+{% extends "base/base.html" %}
+
+{% block contenido %}
+
+<div class="container mt-4">
+    {% if user.is_authenticated %}
+    <a class="btn btn-light"  href="{% url 'crearTelefono' %}">Crear Telefono</a>
+    {% else %}
+    <a class="btn btn-light" href="{% url 'login' %}">Crear Telefono</a>
+    {% endif %}
+    <hr>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark text-center">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fabricante</th>
+                <th scope="col"></th>
+                {% if user.is_authenticated %}
+                <th scope="col"></th>
+                <th scope="col"></th>
+                {% endif %}
+            </tr>
+        </thead>
+<tbody class="table-light">
+            {% for telefono in telefonos %}
+            <tr>
+                <td>{{ telefono.nombre }}</td>
+                <td>{{ telefono.fabricante }}</td>
+                <td><a class="btn btn-light" href="{% url 'detalleTelefono' pk=telefono.id %}">detalle</a></td>
+                {% if user.is_authenticated %}
+                <td><a class="btn btn-light" href="{% url 'modificarTelefono' pk=telefono.id%}">modificar</a></td>
+                <td><a class="btn btn-light" href="{% url 'borrarTelefono' pk=telefono.id %}">Borrar</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

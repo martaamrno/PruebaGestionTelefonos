@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+
+{% block contenido %}
+    <h1>{{ telefonos.nombre }} - {{ telefonos.fabricante }}</h1>
+    <h3>{{ telefonos.fecha_lanzamiento }}</h3>
+    <h5>{{telefonos.precio}} </h5>
+    <h5>{{telefonos.sistemaOperativo}} </h5>
+    <h5>{{telefonos.disponibilidad}} </h5>
+    <p>Fecha de creacion: {{ telefonos.created_at }}</p>
+    <p>Fecha de ultima modificacion: {{ telefonos.update_at }}</p>
+    
+    
+{% endblock %}

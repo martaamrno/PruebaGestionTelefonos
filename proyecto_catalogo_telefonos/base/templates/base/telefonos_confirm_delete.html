@@ -1,0 +1,19 @@
+<!-- playas -->
+
+{% extends "base/base.html" %}
+
+{% block contenido %}
+
+<h6 class="display-6 text-center mb-5">Borrar telefono</h6>
+
+<p>Estas seguro de eliminar el telefono {{telefonos.nombre}} </p>
+
+<form method="post">
+    {% csrf_token %}
+
+<div class="text-center">
+<button class="btn btn-danger mt-3 " type="submit">Eliminar </button>
+<a class="btn btn-secondary mt-3" href="{% url 'listadoTelefonos'%}">Cancelar</a>
+</div>
+</form>
+{% endblock %}
